@@ -1,0 +1,196 @@
+{% extends base_template %}
+{% load thumbnail %}
+
+{% block pagetitle %}Home{% endblock %}
+
+{% block metadescription %}{% endblock %}
+
+
+{% block extracss %}
+<style type="text/css">
+
+#header {
+  margin-bottom: 0px;   
+}
+
+#feature {
+  margin: 0 0 60px 0;   
+  float: left;
+  width: 100%;
+}
+
+#feature #text {
+  float: right;
+  text-align: right;
+  width: 500px   
+}
+
+#feature #images {
+  float: left;
+  width: 430px;
+  margin: 25px 0 0 30px;   
+}
+
+#feature #images img {
+    position: relative;
+    left: 0;
+    margin: 0 10px 0 0;
+    border: 5px solid #fff;
+}    
+
+#feature h1 {
+  font-size: 36px;
+  text-shadow: 0 1px 1px #fff;
+  margin: 0;   
+}
+
+#feature p {
+  margin: 0;   
+}
+
+#feature img {
+  box-shadow: none;
+  border: none;
+  position: relative;
+  left: -70px;   
+}
+
+#trips {
+  float: left;
+  width: 90%;
+  margin: 0 0 30px 0;
+  padding: 0 5% 0 3%;   
+}
+
+#trips h2 {
+  font-size: 30px;   
+}
+
+#trips h3 {
+   font-size: 24px;   
+}
+
+#trips .trip {
+  width: 100%;
+  float: left;
+  margin: 0 0 30px 0;
+  padding: 0 0 30px 0;  
+  border-bottom: 2px dotted #c4b99e; 
+  position: relative;
+}
+
+#trips .trip:last-child {
+  border-bottom: none;   
+}
+
+#trips .trip .details {
+    background: none repeat scroll 0 0 #ECDA94;
+    border-radius: 3px 3px 0 0;
+    box-shadow: 0 1px 3px #B2A865;
+    font-size: 13px;
+    padding: 30px 10px 20px;
+    position: absolute;
+    right: -80px;
+    top: 20%;
+    width: 120px;
+}
+
+#trips .details .title {
+    background: none repeat scroll 0 0 #3B6F3E;
+    color: #FFFFFF;
+    left: -1px;
+    font-size: 12px;
+    padding: 3px 10px 2px;
+    position: absolute;
+    text-transform: uppercase;
+    top: 0;
+    width: 122px;
+    border-radius: 3px 3px 0 0;
+    border-bottom: 1px solid #225124;
+    text-shadow: 0 1px 1px #000;
+}
+
+#trips .details ul {
+  padding: 0 0 0 0px;
+  margin: 0;
+  list-style-type: none;
+    
+}
+
+#trips .trip .text {
+  float: left;
+  width: 500px; 
+  border: none;
+  padding: 0;
+  margin: 0;  
+}
+
+#trips .trip img {
+  float: left;
+  margin: 0 20px 0 0;
+  position: relative;
+  top: 10px;   
+}
+
+</style>
+{% endblock %}
+
+
+{% block content %}
+<div class="inner">
+
+    <div id="feature">
+        <img src="{{ static_url }}images/home2.jpg"/>
+        <div id="images">
+            <img src="{{ static_url }}images/thumb1.jpg" />
+            <img src="{{ static_url }}images/thumb1.jpg" />
+            <img src="{{ static_url }}images/thumb1.jpg" />
+            <img src="{{ static_url }}images/thumb1.jpg" />
+        </div>
+        <div id="text">
+            <h1>Uncover the mysteries of Chinese tea</h1>
+            <p>Travel to exquisite tea farms across southern China, learn the secrets of making <br/>and appreciating Chinese tea, and experience a once-in-a-lifetime China memory.</p>
+        </div>
+    </div>
+    
+    <div id="trips">
+        <div class="trip">
+            <div class="details">
+                <span class="title">Trip Detail</span>
+                <ul>
+                    <li><span class="price">2000 RMB</span></li>
+                    <li>3 places left</li>
+                    <li>2 days/1 night</li>
+                    <li>Start from Xiamen</li>
+                    <li><a href="">View more &raquo;</a></li>
+                </ul>
+            
+            </div>
+            <img src="{{ static_url }}images/trip1.jpg" />
+            <div class="text">
+                <h3><a href="/tours/anxi/">Anxi - Home of Tie Guan Yin &raquo; </a></h3>
+                <p>Lorem ipsum dolor <strong>sit amet, consectetur adipisicing elit</strong>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+            </div>
+        </div>
+         <div class="trip">
+            <div class="details">
+                <span class="title">Trip Detail</span>
+                <ul>
+                    <li><span class="price">2000 RMB</span></li>
+                    <li>3 places left</li>
+                    <li>2 days/1 night</li>
+                    <li>Start from Xiamen</li>
+                </ul>
+            
+            </div>
+            <img src="{{ static_url }}images/trip2.jpg" />
+            <div class="text">
+                <h3><a href="">Wuyi Mountain - The birthplace of tea &raquo;</a></h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+            </div>
+        </div>
+        
+    </div>
+    
+</div>
+{% endblock %}

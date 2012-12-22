@@ -1,0 +1,17 @@
+{% load nav_selected %}
+
+<div id="subnav">
+<ul>
+    <li>
+        <a class="{% nav_selected request '^/contact/' %}" href="/contact/" title="Contact {{ project_name }}" alt="Contact {{ project_name }}">Contact us</a> |
+    </li>
+    <li>
+        <a class="{% nav_selected request '^/about/' %}" href="/about/" title="About {{ project_name }}" alt="About {{ project_name }}">About us</a> |
+    </li>
+    <li>
+        <a class="{% nav_selected request '^/faqs/' %}" href="/faqs/" title="FAQs for {{ project_name }}" alt="FAQs {{ project_name }}">FAQs</a>
+    </li>
+
+</ul>
+
+</div>

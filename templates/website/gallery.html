@@ -1,0 +1,121 @@
+{% extends base_template %}
+{% load thumbnail %}
+
+{% block pagetitle %}{{ tour.name }}{% endblock %}
+
+{% block metadescription %}{% endblock %}
+
+
+{% block extracss %}
+<style type="text/css">
+
+#header {
+  margin-bottom: 20px;   
+}
+
+#images {
+  float: left;
+  width: 100%;
+  text-align:center;   
+  position: relative;
+}
+
+.next, .prev {
+  text-decoration: none;
+  position: absolute; 
+  top: 250px;
+  display: block;
+  height: 59px;
+  width: 61px;
+  float: left;
+  overflow: hidden;
+}
+
+.next img, .prev img {
+   border: none;
+   box-shadow: none;   
+}
+
+.prev {
+   background: url('/static/images/prev-arrow.png') no-repeat top left;
+   left: 0;
+}
+
+.next {
+  right: 0; 
+   background: url('/static/images/next-arrow.png') no-repeat top left;
+}
+
+.next:hover, .prev:hover {
+  background-position: bottom left;
+}
+
+p.caption {
+  width: 800px;
+  float: left;
+  margin: 20px 0 0 80px;   
+}
+
+span.title-back {
+  width: 800px;
+  opacity: 0.8;
+  background: #fff;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  left: 80px;   
+}
+
+span.title {
+  width: 100%;
+  position: absolute;
+  top: 5px;
+  left: 0;
+  text-align: center;
+  font-size: 18px;   
+}
+
+#thumbs {
+  float: left;
+  width: 100%;
+  margin: 30px 0 0 0;   
+}
+
+#thumbs img {
+  margin: 0 15px 0 0;
+  opacity: 0.6;   
+}
+
+#thumbs img:hover, #thumbs img.selected {
+  opacity: 1;
+  cursor: pointer;   
+}
+
+</style>
+{% endblock %}
+
+
+{% block content %}
+<div class="inner">
+
+    <div id="images">
+        <a class="next" href=""></a>
+        <a class="prev" href=""></a>
+        
+        <span class="title-back"></span>
+        <span class="title">Title of this photo goes here</span>
+        
+        <img src="{{ static_url }}images/gallery1.jpg" />
+        <p class="caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+    <div id="thumbs">
+        <img src="{{ static_url }}images/thumb1.jpg" />
+        <img src="{{ static_url }}images/thumb1.jpg" />
+        <img src="{{ static_url }}images/thumb1.jpg" />
+        <img src="{{ static_url }}images/thumb1.jpg" />
+        <img src="{{ static_url }}images/thumb1.jpg" />
+        <img src="{{ static_url }}images/thumb1.jpg" />
+    </div>
+    
+</div>
+{% endblock %}

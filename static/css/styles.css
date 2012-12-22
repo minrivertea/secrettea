@@ -1,0 +1,221 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'EBGaramondRegular', "Times New Roman", serif;
+    background: url('/static/images/back.png') repeat 0 0;
+}
+
+p {
+  line-height: 1.8em;
+  padding: 0;
+  margin: 0; 
+}
+
+p.introduction {
+   font-size: 22px;
+   margin: 0 0 30px 0;   
+}
+
+h1, h2, h3 {
+  font-weight: normal;
+  letter-spacing: -0.5px; 
+  margin: 0; 
+}
+
+h1 {
+  font-size: 40px; 
+  color: #4e7208;  
+}
+
+
+a:link, a:visited {
+  color: #b43700;   
+}
+
+a:active, a:hover {
+  color: #8cb400;   
+}
+
+a.button {
+  background: #4e7208;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px #4a5a13;
+  border: 1px solid #6b4d39;
+  border-color: #5d730f #5d730f #5d730f #5d730f;  
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 20px;
+  text-shadow: 0 1px 1px #000;
+  text-align: center;
+  z-index: 10; 
+}
+
+a.button:hover {
+  background: #8cb400;
+  border-color: #42561b;   
+}
+
+img {
+  border: 5px solid #fff;
+  box-shadow: 0 1px 10px #999;   
+}
+
+.inner {
+  width: 960px;
+  margin-left: -480px;
+  position: relative;
+  left: 50%;   
+}
+
+@font-face {
+    font-family: EBGaramondRegular;
+    src: url('/static/fonts/EBGaramond-webfont.eot');
+    src: url('/static/fonts/EBGaramond-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/fonts/EBGaramond-webfont.woff') format('woff'),
+         url('/static/fonts/EBGaramond-webfont.ttf') format('truetype'),
+         url('/static/fonts/EBGaramond-webfont.svg#/static/fonts/EBGaramondRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: '/static/fonts/EBGaramondSC';
+    src: url('/static/fonts/EBGaramondSC-webfont.eot');
+    src: url('/static/fonts/EBGaramondSC-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/fonts/EBGaramondSC-webfont.woff') format('woff'),
+         url('/static/fonts/EBGaramondSC-webfont.ttf') format('truetype'),
+         url('/static/fonts/EBGaramondSC-webfont.svg#/static/fonts/EBGaramondSC') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* HEADER */
+
+#header {
+  padding: 20px 0;
+  margin: 0 0 50px 0;   
+}
+
+#logo a {
+   display: block;
+   height: 100px;
+   width: 400px;
+   background: url('/static/images/logo.png') no-repeat top left;
+}
+
+#logo a:hover {
+   opacity: 0.8;   
+}
+
+#logo span {
+  display: none;   
+}
+
+
+
+/* NAVIGATION */
+
+#navigation ul, #subnav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0; 
+}
+
+#navigation {
+    font-size: 25px;
+    position: absolute;
+    right: 0;
+    top: 30px;
+}
+
+#navigation li {
+  display: inline;
+  margin: 0 0px 0 15px;   
+}
+
+#navigation li a.selected {
+  color: #333;
+  text-decoration: none;   
+}
+
+#subnav {
+  position: absolute;
+  top: 0;
+  right: 0; 
+  font-size: 12px;   
+}
+
+#subnav li {
+  display: inline;
+  margin: 0 0px 0 0;   
+}
+
+#subnav li a:link, #subnav li a:visited {
+  color: #333;   
+}
+
+#subnav li a:active, #subnav li a:hover {
+  color: #8cb400;   
+}
+
+/* MAIN DIVS */
+
+#right {
+   float: right;
+   width: 280px;   
+}
+
+#right .box {
+  width: 88%;
+  padding: 50px 6% 6% 6%;
+  position: relative;
+  border-radius: 5px 5px 0 0;
+  margin: 0 0 30px 0;
+}
+
+#right .box p {
+  margin: 0;   
+}
+
+#right .box img {
+  border: none;
+  box-shadow: none;   
+}
+
+#right .box.white {
+  background: #fff;   
+}
+
+#right .box span.title {
+  position: absolute;
+  top: 0;
+  left: 0px;
+  background: #5c758b; 
+  padding: 5px 6%; 
+  width: 88%; 
+  color: #fff;
+  border-radius: 5px 5px 0 0;
+}
+
+#left {
+  float: left;
+  width: 600px;   
+}
+
+
+
+/* FOOTER */
+
+#footer {
+  position: relative;
+  float: left;
+  width: 100%;
+  margin: 50px 0 100px 0;  
+  text-align: center;
+  padding: 50px 0 0 0;
+  border-top: 2px dotted #C4B99E; 
+}

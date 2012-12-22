@@ -1,0 +1,22 @@
+{% load nav_selected %}
+
+<div id="navigation">
+  <ul>
+    <li>
+      <a class="{% nav_selected request '^/$' %}" href="{% url home %}">Home</a>
+    </li>
+    <li>
+        <a class="{% nav_selected request '^/tours/' %}" href="{% url tours %}">Tours</a>
+    </li>
+    <li>
+        <a class="{% nav_selected request '^/gallery/' %}" href="{% url gallery %}">Gallery</a>
+    </li>
+    <li>
+      <a class="{% nav_selected request '^/pricing/' %}" href="/pricing/" title="Pricing" alt="Pricing">Pricing</a>
+    </li>
+    <li>
+        <a class="{% nav_selected request '^/book/' %}" href="">Book Now</a>
+    </li>
+  </ul>
+
+</div>
