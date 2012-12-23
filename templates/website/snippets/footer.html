@@ -5,9 +5,9 @@
 
     <p class="copyright">
         &copy; {{ project_website }} | Project Address, China 123456 | 
-        <a href="/contact-us/">Contact Us</a> | 
-        <a href="/terms-and-conditions/">Terms & Conditions</a> | 
-        <a href="/privacy/">Privacy</a> 
+        <a href="{% url page 'contact' %}">Contact Us</a> | 
+        <a href="{% url page 'terms-and-conditions' %}">Terms & Conditions</a> | 
+        <a href="{% url page 'privacy' %}">Privacy</a> 
     </p>
 
 

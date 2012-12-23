@@ -74,7 +74,10 @@ def galleries(request):
 
 def gallery(request, slug):
     tour = get_object_or_404(Tour, slug=slug)
-    first = tour.get_photos()[0]
+    try:
+        first = tour.get_photos()[0]
+    except IndexError:
+        first = None
     return HttpResponseRedirect(reverse('gallery_image', args=[tour.slug, first.id]))
 
 
