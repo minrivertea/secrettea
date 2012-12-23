@@ -81,12 +81,12 @@ def gallery(request, slug):
 def gallery_image(request, slug, id):
     image = get_object_or_404(GalleryImage, pk=id)
     try:
-        next = get_object_or_404(GalleryImage, pk=(image.id+1))
+        next = get_object_or_404(GalleryImage, pk=(image.id+1), tour=image.tour)
     except:
         next = None
     
     try:
-        prev = get_object_or_404(GalleryImage, pk=(image.id-1))
+        prev = get_object_or_404(GalleryImage, pk=(image.id-1), tour=image.tour)
     except:
         prev = None
     return _render(request, 'website/gallery_image.html', locals())

@@ -4,7 +4,7 @@
         <div class="trip">
             <div class="box">
                 <span class="title">{{ t.start_date|date:"d" }}-{{ t.end_date|date:"d" }} {{ t.end_date|date:"M" }} {{ t.end_date|date:"Y" }}</span>
-                2 days/1 night, Start from Xiamen, only {{ t.remaining_places }} places remaining.<br/>
+                2 days/1 night, Starting at {{ t.starting_point }}, only {{ t.remaining_places }} places remaining.<br/>
                 <a href="{% url tour t.slug %}">View more &raquo;</a>
                 
             
