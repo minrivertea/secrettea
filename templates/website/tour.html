@@ -67,7 +67,7 @@ img.promo {
 {% block content %}
 <div class="inner">
 
-    <h1>{{ tour.name }}</h1>
+    <h1>{{ tour }}</h1>
     <p class="introduction">{{ tour.intro_content }}</p>
 
     <div id="right">
@@ -92,7 +92,7 @@ img.promo {
         
 
         <p class="details">
-            <a class="book button" href="">Book this tour now &raquo;</a>
+            <a class="book button" href="{% url book %}">Book this tour now &raquo;</a>
             <strong>Price:</strong> {{ tour.price }} RMB &nbsp;&nbsp;| &nbsp;&nbsp;<strong>Dates:</strong> {{ tour.start_date|date:"d" }}-{{ tour.end_date|date:"d" }} {{ tour.start_date|date:"M" }} &nbsp;&nbsp; <br/><strong>Starts from:</strong> Xiamen, Fujian  
         </p>
         <br clear="all"/>

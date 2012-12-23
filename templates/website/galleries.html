@@ -15,17 +15,37 @@
 
 #galleries {
   float: left;
-  width: 100%;
-  text-align:center;   
-  position: relative;
-}
-
-#galleries img {
-  margin: 0 30px 30px 0;   
+  width: 880px;
+  padding-left: 80px;
 }
 
 #galleries img:hover {
   opacity: 0.7;   
+}
+
+#galleries .gallery {
+  float: left;
+  margin: 0 30px 0 0;
+  position: relative;
+}
+
+span.title-back {
+  width: 410px;
+  opacity: 0.8;
+  background: #fff;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  left: 00px;   
+}
+
+span.title {
+  width: 100%;
+  position: absolute;
+  top: 5px;
+  left: 0;
+  text-align: center;
+  font-size: 18px;   
 }
 
 </style>
@@ -37,9 +57,15 @@
 
     <div id="galleries">
     {% for t in tours %}
+        <div class="gallery">
+            <span class="title-back"></span>
+            <span class="title">{{ t }}</span>
         {% thumbnail t.promo_image thumb_large crop="center" as im %}
-            <a href="{% url gallery t.slug %}"><img src="{{ im.url }}" /></a>
+            <a href="{% url gallery t.slug %}">
+                <img src="{{ im.url }}" />
+            </a>
         {% endthumbnail %}
+        </div>
     {% endfor %}
     </div>
     

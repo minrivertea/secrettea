@@ -83,12 +83,16 @@ span.title {
 
 #thumbs img {
   margin: 0 15px 0 0;
-  opacity: 0.6;   
+  opacity: 1;   
 }
 
-#thumbs img:hover, #thumbs img.selected {
-  opacity: 1;
+#thumbs img:hover {
+  opacity: 0.6;
   cursor: pointer;   
+}
+
+#thumbs img.selected {
+  opacity: 0.3;   
 }
 
 .info {
