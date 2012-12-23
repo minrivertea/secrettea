@@ -93,7 +93,7 @@ def gallery_image(request, slug, id):
 
 
 def page(request, slug):
-    
+    page = get_object_or_404(Page, slug=slug)
     
     return _render(request, 'website/page.html', locals())
 
