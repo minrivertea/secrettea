@@ -10,7 +10,8 @@
 <style type="text/css">
 
 #header {
-  margin-bottom: 0px;   
+  margin-bottom: 0;
+  height: 60px;
 }
 
 #feature {
@@ -83,34 +84,25 @@
   border-bottom: none;   
 }
 
-#trips .trip .details {
-    background: none repeat scroll 0 0 #ECDA94;
-    border-radius: 3px 3px 0 0;
+#trips .trip .box {
+    background: none repeat scroll 0 0 #fff;
+    border-radius: 3px 3px 5px 5px;
     box-shadow: 0 1px 3px #B2A865;
     font-size: 13px;
-    padding: 30px 10px 20px;
+    padding: 40px 10px 20px;
     position: absolute;
-    right: -80px;
-    top: 20%;
+    right: -40px;
+    top: 0;
     width: 120px;
 }
 
-#trips .details .title {
-    background: none repeat scroll 0 0 #3B6F3E;
-    color: #FFFFFF;
-    left: -1px;
-    font-size: 12px;
-    padding: 3px 10px 2px;
-    position: absolute;
-    text-transform: uppercase;
-    top: 0;
-    width: 122px;
-    border-radius: 3px 3px 0 0;
-    border-bottom: 1px solid #225124;
-    text-shadow: 0 1px 1px #000;
+#trips .trip .box .title {
+  font-size: 18px;
+  line-height: 1em;
+  padding: 7px 8px 10px;   
 }
 
-#trips .details ul {
+#trips .box ul {
   padding: 0 0 0 0px;
   margin: 0;
   list-style-type: none;
@@ -142,10 +134,11 @@
     <div id="feature">
         <img src="{{ static_url }}images/home2.jpg"/>
         <div id="images">
-            <img src="{{ static_url }}images/thumb1.jpg" />
-            <img src="{{ static_url }}images/thumb1.jpg" />
-            <img src="{{ static_url }}images/thumb1.jpg" />
-            <img src="{{ static_url }}images/thumb1.jpg" />
+            {% for x in photos %}
+                {% thumbnail x.image thumb_small crop="center" as im %}
+                    <img src="{{ im.url }}" />
+                {% endthumbnail %}
+            {% endfor %}
         </div>
         <div id="text">
             <h1>Uncover the mysteries of Chinese tea</h1>
@@ -153,44 +146,7 @@
         </div>
     </div>
     
-    <div id="trips">
-        <div class="trip">
-            <div class="details">
-                <span class="title">Trip Detail</span>
-                <ul>
-                    <li><span class="price">2000 RMB</span></li>
-                    <li>3 places left</li>
-                    <li>2 days/1 night</li>
-                    <li>Start from Xiamen</li>
-                    <li><a href="">View more &raquo;</a></li>
-                </ul>
-            
-            </div>
-            <img src="{{ static_url }}images/trip1.jpg" />
-            <div class="text">
-                <h3><a href="/tours/anxi/">Anxi - Home of Tie Guan Yin &raquo; </a></h3>
-                <p>Lorem ipsum dolor <strong>sit amet, consectetur adipisicing elit</strong>, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-            </div>
-        </div>
-         <div class="trip">
-            <div class="details">
-                <span class="title">Trip Detail</span>
-                <ul>
-                    <li><span class="price">2000 RMB</span></li>
-                    <li>3 places left</li>
-                    <li>2 days/1 night</li>
-                    <li>Start from Xiamen</li>
-                </ul>
-            
-            </div>
-            <img src="{{ static_url }}images/trip2.jpg" />
-            <div class="text">
-                <h3><a href="">Wuyi Mountain - The birthplace of tea &raquo;</a></h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-            </div>
-        </div>
-        
-    </div>
+   {% include 'website/snippets/tour_list.html' %} 
     
 </div>
 {% endblock %}

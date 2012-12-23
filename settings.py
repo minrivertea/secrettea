@@ -8,6 +8,7 @@ PROJECT_PATH = os.path.normpath(os.path.dirname(__file__))
 # ----------------------------------
 
 DEBUG = False
+THUMBNAIL_DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 GA_IS_ON = True
 PROJECT_NAME = 'Secret Tea Tours'
@@ -45,23 +46,21 @@ USE_L10N = False
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = os.path.join(PROJECT_PATH, 'static')
+MEDIA_ROOT = os.path.join(PROJECT_PATH, 'media')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
-MEDIA_URL = ''
+MEDIA_URL = '/media/'
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(PROJECT_PATH, 'static'),
 )
 
-THUMB_LARGE = ''
-THUMB_MEDIUM = ''
-THUMB_SMALL = ''
-
-
+THUMB_LARGE = '400x310'
+THUMB_MEDIUM = '210x160'
+THUMB_SMALL = '80x80'
 
 # Template settings
 # -----------------------------------------

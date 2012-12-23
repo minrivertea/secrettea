@@ -1,7 +1,7 @@
 {% extends base_template %}
 {% load thumbnail %}
 
-{% block pagetitle %}{{ tour.name }}{% endblock %}
+{% block pagetitle %}Book your tour{% endblock %}
 
 {% block metadescription %}{% endblock %}
 
@@ -60,6 +60,13 @@ img.promo {
   cursor: pointer;   
 }
 
+ul.errorlist {
+  color: red;
+  margin: 0;
+  list-style-type: none;
+  padding: 0;
+}
+
 </style>
 {% endblock %}
 
@@ -67,45 +74,39 @@ img.promo {
 {% block content %}
 <div class="inner">
 
-    <h1>{{ tour.name }}</h1>
-    <p class="introduction">{{ tour.intro_content }}</p>
+    <h1>Book a place on a tour</h1>
+    <p class="introduction">Use this online form to book your place. Once you've completed the tour, your place will be reserved. We will send you a confirmation email and then contact you by telephone to confirm arrangements. </p>
 
     <div id="right">
         
         <div class="box white">
-            <span class="title">The title here</span>
+            <span class="title">Ways to pay</span>
             <p>Try your hand at making traditional Chinese tea with experienced tea masters</p>
         </div>
         
         <div class="box white">
-            <span class="title">The title here</span>
-            <img src="{{ static_url }}images/box1.jpg"/>
+            <span class="title">Returns, refunds, rights?</span>
             <p>Try your hand at making traditional Chinese tea with experienced tea masters</p>
+        </div>
+        
+        <div class="box white">
+            <span class="title">Still have questions?</span>
+            <p>Check out the <a href="{% url page 'faqs' %}">FAQs</a> or just <a href="{% url page 'contact' %}">get in touch</a> with us by phone or email.</p>
         </div>
                
     </div>
     
     <div id="left">
         
+        <form action="." method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input class="button" type="submit" value="Save and book your place" />
+        </form>
         
         
         
-
-        <p class="details">
-            <a class="book button" href="">Book this tour now &raquo;</a>
-            <strong>Price:</strong> {{ tour.price }} RMB &nbsp;&nbsp;| &nbsp;&nbsp;<strong>Dates:</strong> {{ tour.start_date|date:"d" }}-{{ tour.end_date|date:"d" }} {{ tour.start_date|date:"M" }} &nbsp;&nbsp; <br/><strong>Starts from:</strong> Xiamen, Fujian  
-        </p>
-        <br clear="all"/>
         
-        <div class="photos">
-            {% for x in tour.get_photos %}                
-                  {% thumbnail x.image thumb_small crop="center" as im %}
-                    <a href="{% url gallery_image tour.slug x.id %}"><img src="{{ im.url }}" /></a>
-                  {% endthumbnail %}
-            {% endfor %}
-        </div>
-        
-        {{ tour.main_content|safe }}
 
 
     </div>

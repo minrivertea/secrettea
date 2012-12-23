@@ -1,0 +1,143 @@
+{% extends base_template %}
+{% load thumbnail %}
+
+{% block pagetitle %}{{ image.title }}{% endblock %}
+
+{% block metadescription %}{{ image.description }}{% endblock %}
+
+
+{% block extracss %}
+<style type="text/css">
+
+#header {
+  margin-bottom: 20px;   
+}
+
+#images {
+  float: left;
+  width: 100%;
+  text-align:center;   
+  position: relative;
+}
+
+.next, .prev {
+  text-decoration: none;
+  position: absolute; 
+  top: 250px;
+  display: block;
+  height: 59px;
+  width: 61px;
+  float: left;
+  overflow: hidden;
+}
+
+.next img, .prev img {
+   border: none;
+   box-shadow: none;   
+}
+
+.prev {
+   background: url('/static/images/prev-arrow.png') no-repeat top left;
+   left: 0;
+}
+
+.next {
+  right: 0; 
+   background: url('/static/images/next-arrow.png') no-repeat top left;
+}
+
+.next:hover, .prev:hover {
+  background-position: bottom left;
+}
+
+p.caption {
+  width: 800px;
+  float: left;
+  margin: 20px 0 0 80px;   
+}
+
+span.title-back {
+  width: 800px;
+  opacity: 0.8;
+  background: #fff;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  left: 80px;   
+}
+
+span.title {
+  width: 100%;
+  position: absolute;
+  top: 5px;
+  left: 0;
+  text-align: center;
+  font-size: 18px;   
+}
+
+#thumbs {
+  float: left;
+  width: 100%;
+  margin: 30px 0 0 0;   
+}
+
+#thumbs img {
+  margin: 0 15px 0 0;
+  opacity: 0.6;   
+}
+
+#thumbs img:hover, #thumbs img.selected {
+  opacity: 1;
+  cursor: pointer;   
+}
+
+.info {
+  position: absolute;
+  top: -30px;
+  right: 120px;
+  text-align: right;
+  float: left;
+  font-size: 13px;
+}
+
+</style>
+{% endblock %}
+
+
+{% block content %}
+<div class="inner">
+
+    <div id="images">
+        {% if next %}<a class="next" href="{% url gallery_image next.tour.slug next.id %}"></a>{% endif %}
+        {% if prev %}<a class="prev" href="{% url gallery_image prev.tour.slug prev.id %}"></a>{% endif %}
+        
+        <span class="info">
+            Do you like what you see? Travel here on our <a href="{% url tour image.tour.slug %}">{{ image.tour.name }} tour</a>.
+        </span>
+        
+        <span class="title-back"></span>
+        <span class="title">{{ image.title }}</span>
+        
+        {% thumbnail image.image "800" crop="" as im %}
+            <img src="{{ im.url }}" />
+        {% endthumbnail %}
+        <p class="caption">{{ image.description }}</p>
+    </div>
+    <div id="thumbs">
+        {% for x in image.get_prev %}
+            {% thumbnail x.image thumb_small crop="center" as im %}
+                <a href="{% url gallery_image x.tour.slug x.id %}"><img src="{{ im.url }}" /></a>
+            {% endthumbnail %}
+        {% endfor %}
+        {% thumbnail image.image thumb_small crop="center" as im %}
+        <img class="selected" src="{{ im.url }}" />
+        {% endthumbnail %}
+        {% for x in image.get_next %}
+            {% thumbnail x.image thumb_small crop="center" as im %}
+                <a href="{% url gallery_image x.tour.slug x.id %}"><img src="{{ im.url }}" /></a>
+            {% endthumbnail %}
+        {% endfor %}
+    </div>
+    
+</div>
+{% endblock %}

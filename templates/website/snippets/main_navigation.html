@@ -9,13 +9,13 @@
         <a class="{% nav_selected request '^/tours/' %}" href="{% url tours %}">Tours</a>
     </li>
     <li>
-        <a class="{% nav_selected request '^/gallery/' %}" href="{% url gallery %}">Gallery</a>
+        <a class="{% nav_selected request '^/galleries/' %}" href="{% url galleries %}">Gallery</a>
     </li>
     <li>
-      <a class="{% nav_selected request '^/pricing/' %}" href="/pricing/" title="Pricing" alt="Pricing">Pricing</a>
+      <a class="{% nav_selected request '^/pricing/' %}" href="{% url page 'pricing' %}" title="Pricing" alt="Pricing">Pricing</a>
     </li>
     <li>
-        <a class="{% nav_selected request '^/book/' %}" href="">Book Now</a>
+        <a class="{% nav_selected request '^/book/' %}" href="{% url book %}">Book Now</a>
     </li>
   </ul>
 

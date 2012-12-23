@@ -21,6 +21,7 @@ def common(request):
     context['base_template'] = settings.BASE_TEMPLATE
     
     context['static_url'] = settings.STATIC_URL
+    context['media_url'] = settings.MEDIA_URL
 
   
             
