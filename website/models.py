@@ -1,13 +1,15 @@
 from django.db import models
 from datetime import date
 
+from ckeditor.fields import RichTextField
+
 
 class Tour(models.Model):
     name = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200)
     promo_image = models.ImageField(upload_to='tours', blank=True, null=True)
     intro_content = models.TextField(blank=True, null=True)
-    main_content = models.TextField(blank=True, null=True)
+    main_content = RichTextField(blank=True, null=True)
     remaining_places = models.IntegerField(default=0)
     price = models.IntegerField(blank=True, null=True)
     starting_point = models.CharField(max_length=200, blank=True, null=True)
@@ -66,7 +68,7 @@ class GalleryImage(models.Model):
 class Page(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField()
-    content = models.TextField()
+    content = RichTextField()
     is_draft = models.BooleanField(default=True)
     
     def __unicode__(self):

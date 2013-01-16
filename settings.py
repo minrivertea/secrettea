@@ -105,7 +105,28 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'website',
     'sorl.thumbnail',
+    'ckeditor',
 )
+
+
+CKEDITOR_UPLOAD_PATH = os.path.join(MEDIA_ROOT, 'ckuploads')
+CKEDITOR_UPLOAD_PREFIX = "/ckuploads/"
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': [
+            [      'Undo', 'Redo',
+              '-', 'Bold', 'Italic', 'Underline', 'BulletedList', 'NumberedList', 'Image',
+              '-', 'Link', 'Unlink', 'Anchor',
+              '-', 'Format',
+              '-', 'PasteFromWord',
+              '-', 'Maximize', 'Source', 
+            ],
+        ],
+        'width': 840,
+        'height': 300,
+        'toolbarCanCollapse': False,
+    }
+}
 
 
 try:
