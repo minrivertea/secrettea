@@ -59,7 +59,7 @@ def booking_confirmed(request):
 
 
 def tours(request):
-    tours = Tour.objects.filter()
+    tours = Tour.objects.filter().order_by('start_date')
     return _render(request, 'website/tours.html', locals())
     
 
