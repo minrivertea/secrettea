@@ -37,7 +37,7 @@ from website.forms import BookingForm
 
 # the homepage view
 def home(request):
-    tours = Tour.objects.filter()
+    tours = Tour.objects.filter().order_by('start_date')
     photos = GalleryImage.objects.all().order_by('?')[:4]
     return _render(request, "website/home.html", locals())
 
