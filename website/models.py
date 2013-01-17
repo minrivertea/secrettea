@@ -18,7 +18,7 @@ class Tour(models.Model):
     
     def __unicode__(self):
         month = self.end_date.strftime("%B")
-        name = "%s (%s-%s %s %s)" % (self.name, self.start_date.day, self.end_date.day, month, self.end_date.year)
+        name = "%s (starts %s %s %s)" % (self.name, self.start_date.day, month, self.end_date.year)
         return name
     
     def get_photos(self):
